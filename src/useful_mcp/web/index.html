@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101820">
+    <title>Useful MCP Chat</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Useful MCP Chat home">
+          <span class="brand-mark">U</span>
+          <span>Useful <strong>Chat</strong></span>
+        </a>
+        <span class="connection"><i></i> Tools connected</span>
+      </header>
+
+      <section id="login-panel" class="login-panel card" hidden>
+        <p class="eyebrow">PRIVATE ASSISTANT</p>
+        <h1>Welcome back.</h1>
+        <p class="muted">Sign in to chat with your weather and web research tools.</p>
+        <form id="login-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required maxlength="120">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="256">
+          <button class="button primary full" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+          <p id="login-error" class="error" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="chat-panel" class="chat-panel" hidden>
+        <div class="chat-heading">
+          <div>
+            <p class="eyebrow">YOUR AI ASSISTANT</p>
+            <h1>What can I help with?</h1>
+            <p class="muted">Ask anything. I can check live weather and search the web when it helps.</p>
+          </div>
+          <button id="logout-button" class="button quiet" type="button">Sign out</button>
+        </div>
+
+        <div id="suggestions" class="suggestions">
+          <button class="suggestion" type="button" data-prompt="What's the weather in Mumbai today?">☀ <span>Weather in Mumbai</span><b>↗</b></button>
+          <button class="suggestion" type="button" data-prompt="Search the web for the latest news about artificial intelligence.">⌕ <span>Search latest AI news</span><b>↗</b></button>
+          <button class="suggestion" type="button" data-prompt="Find the weather forecast for Bengaluru for the next 3 days.">◷ <span>3 day forecast</span><b>↗</b></button>
+        </div>
+
+        <div id="conversation" class="conversation" aria-live="polite" aria-label="Conversation"></div>
+        <form id="chat-form" class="composer">
+          <label class="visually-hidden" for="message">Message</label>
+          <textarea id="message" rows="1" placeholder="Message your assistant..." required maxlength="5000"></textarea>
+          <div class="composer-footer">
+            <span class="composer-hint">Enter to send · Shift+Enter for a new line</span>
+            <button class="send-button" type="submit" aria-label="Send message">↑</button>
+          </div>
+        </form>
+        <p class="privacy-note">Your messages are sent to the configured model provider. Tool calls run through your MCP server.</p>
+      </section>
+      <div id="toast" class="toast" role="status"></div>
+    </main>
+  </body>
+</html>
